@@ -149,3 +149,17 @@ function toggleReadStatus(bookId){
 
 //function to add a function that belongs to all instances of books
 Book.prototype.toggle = function(){ this.readstatus = ! this.readstatus }
+
+const addbookbtn = document.querySelector("#addbookbtn")
+const dialog = document.querySelector("#addbookdialog")
+const closedialogbtn = document.querySelector("#closedialogbtn")
+const submitbookbtn = document.querySelector("#submitbookbtn")
+addbookbtn.addEventListener("click", ()=>{
+    dialog.showModal()
+})
+closedialogbtn.addEventListener("click", ()=>{
+    dialog.close()
+})
+submitbookbtn.addEventListener("click", (e)=>{
+    e.preventDefault()
+})

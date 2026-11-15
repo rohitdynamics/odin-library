@@ -10,10 +10,26 @@
 <body>
     <header>
         <div class="header-left-text">The Odin Library</div>
-        <div class="header-right-button">BUTTON</div>
+        <button id="addbookbtn">BUTTON</button>
     </header>
     <div class="library">
     </div>
+    <dialog id="addbookdialog">
+        <button id="closedialogbtn">Close</button>
+            <form>
+                <label for="title">Book name</label>
+                <input type="text" id="title" name="title" placeholder="The Witcher"/>
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" placeholder="A. Sapkowski"/>
+                <label for="title">No of pages in book</label>
+                <input type="text" id="pages" name="pages" placeholder="594"/>
+                <div id="markasread-div">
+                <label for="title">Mark as read</label>
+                <input type="checkbox" id="pages" name="readstatus"/>
+                </div>
+                <button type =submit id="submitbookbtn">Submit</button>
+            </form>
+        </dialog>
     <footer></footer>
 </body>
 </html>

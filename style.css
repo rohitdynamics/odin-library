@@ -29,3 +29,23 @@ header{
 button{
     display: block;
 }
+
+dialog{
+    margin: auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 100px;
+}
+
+#markasread-div{
+    display: flex;
+    gap: 15px;
+}
+
+#closedialogbtn{
+    margin-left: auto;
+}
