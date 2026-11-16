@@ -10,6 +10,9 @@ function Book(title, author, pages, readstatus){
     this.id = crypto.randomUUID()
 }
 
+//selecting the library main div
+const librarydiv = document.querySelector(".library")
+
 //hardcoding some initial books
 addBookToLibrary('Abstract Algebra', 'David S. Dummit & Richard M. Foote', 944, true)
 addBookToLibrary('Algebra', 'Michael Artin', 543, true)
@@ -27,8 +30,8 @@ addBookToLibrary('Visual Group Theory', 'Nathan Carter', 320, true)
 addBookToLibrary('Introduction to Commutative Algebra', 'M. F. Atiyah & I. G. Macdonald', 128, false)
 addBookToLibrary('Galois Theory', 'Ian Stewart', 328, false)
 
-//selecting the library main div
-const librarydiv = document.querySelector(".library")
+// //selecting the library main div
+// const librarydiv = document.querySelector(".library")
 
 displayBooks(myLibrary);
 
@@ -122,6 +125,7 @@ displaybookreadtogglebutton.forEach((button) => {
 //function to add the object instances to array
 function addBookToLibrary(title, author, pages, readstatus){
     myLibrary[myLibrary.length] = new Book(title, author, pages, readstatus)
+    displayBooks(myLibrary)
 }
 
 //function to remove the book object instance from array
@@ -150,6 +154,7 @@ function toggleReadStatus(bookId){
 //function to add a function that belongs to all instances of books
 Book.prototype.toggle = function(){ this.readstatus = ! this.readstatus }
 
+//add book from dialog form into the array and display them
 const addbookbtn = document.querySelector("#addbookbtn")
 const dialog = document.querySelector("#addbookdialog")
 const closedialogbtn = document.querySelector("#closedialogbtn")
@@ -162,4 +167,10 @@ closedialogbtn.addEventListener("click", ()=>{
 })
 submitbookbtn.addEventListener("click", (e)=>{
     e.preventDefault()
+    })
+const addbookform = document.querySelector("#addbookform")
+addbookform.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const formdetails = new FormData(addbookform)
+    addBookToLibrary(formdetails.get('title'), formdetails.get('author'), formdetails.get('pages'), formdetails.has('readstatus'))
 })
